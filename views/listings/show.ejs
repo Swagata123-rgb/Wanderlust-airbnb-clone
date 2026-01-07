@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WanderLust</title>
-</head>
-<body>
-    <h3>Listing Details:</h3>
-    <ul>
-        <li><%= listing.title %></li>
-        <li><%= listing.description %></li>
-        <li> &#8377;<%= listing.price %></li>
-        <li><%= listing.location %></li>
-        <li><%= listing.country %></li>
-    </ul>
-    <br>
-    <a href="/listings/<%=listing._id%>/edit">Edit this Listing</a>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE"><button>Delete this Listing</button></form>
-</body>
-</html>
+<% layout("/layouts/boilerplate")%>
+<br/>
+<div class="show">
+    <div class="show" style="width: 18rem;">
+  <img src="<%= listing.image.url %>" class="show-img-top shows-img" alt="listing_image">
+  <div class="show">
+    <p class="show"><%= listing.title %></p>
+  </div>
+</div>
+</div>
+<h3>Listing Details:</h3>
+  <ul>
+     <li><%= listing.title %></li>
+     <li><%= listing.description %></li>
+     <li> &#8377;<%= listing.price %></li>
+     <li><%= listing.location %></li>
+     <li><%= listing.country %></li>
+   </ul>
+   <br>
+   <div>
+   <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark edit-btn">Edit </a>
+  <br/><br/>
+   <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE"><button class="btn btn-dark del-btn">Delete</button></form>
+</div>
