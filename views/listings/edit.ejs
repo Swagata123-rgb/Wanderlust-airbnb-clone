@@ -2,7 +2,7 @@
   <br/>
     <h3>Edit Listing</h3>
 
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation">
        <div class="mb-3">
          <label for="title" class="form-label">Title</label>
          <input 
@@ -10,21 +10,23 @@
             type="text" 
             value="<%= listing.title %>"
             class="form-control"
+            required
         >
         </div>
          <div>
              <label for="description" class="form-label">Description</label>
-        <textarea name="listing[description]" class="form-control">
+        <textarea name="listing[description]" class="form-control" required>
 <%= listing.description %>
         </textarea>
         </div>
        <div> 
          <label for="image" class="form-label">Image Link</label>
         <input 
-            name="listing[image]" 
+            name="listing[image][url]" 
             type="text" 
             value="<%= listing.image.url %>"
             class="form-control"
+            required
         >
         </div>
         <div>
@@ -34,6 +36,7 @@
             type="number" 
             value="<%= listing.price %>"
             class="form-control"
+            required
         >
         </div>
        <div>
@@ -43,6 +46,7 @@
             type="text" 
             value="<%= listing.location %>"
             class="form-control"
+            required
         >
         </div>
          <div>
@@ -52,8 +56,10 @@
             type="text" 
             value="<%= listing.country %>"
             class="form-control"
+            required
         >
         <br/>
 
         <button class="btn btn-dark edit-btn">Update</button>
     </form>
+   <script src="/js/script.js"></script>
